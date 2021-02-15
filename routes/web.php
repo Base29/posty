@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 // Regiteration Routes
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/register', [RegisterController::class, 'register']);
 
 // Login Routes
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
+// Posts Routes
 Route::get('/posts', function () {
     return view('posts.index');
 });
