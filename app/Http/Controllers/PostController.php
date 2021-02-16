@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -13,6 +13,14 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        dd('Add Post');
+        // Validate request
+        $this->validate($request, [
+            'body' => 'required',
+        ]);
+
+        // Create post in database
+        $request->user()->posts()->create($request->only('body'));
+
+        return back();
     }
 }
