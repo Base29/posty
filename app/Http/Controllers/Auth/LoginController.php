@@ -21,7 +21,7 @@ class LoginController extends Controller
         ]);
 
         // Attempting to log in the user
-        if (!auth()->attempt($request->only('email', 'password'))) {
+        if (!auth()->attempt($request->only('email', 'password'), 'remember')) {
             return back()->with('status', 'Invalid login details');
         };
 
