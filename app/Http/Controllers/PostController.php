@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Client\Request;
+
 class PostController extends Controller
 {
     public function index()
@@ -9,7 +11,7 @@ class PostController extends Controller
         return view('posts.index');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         dd('Add Post');
     }
