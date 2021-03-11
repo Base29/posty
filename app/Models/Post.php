@@ -28,4 +28,9 @@ class Post extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    public function ownedBy(User $user)
+    {
+        return $user->id === $this->user_id;
+    }
 }
