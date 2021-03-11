@@ -28,6 +28,17 @@
                     <a href="" class="font-bold">{{ $post->user->name }}</a> <span class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
                     <p class="mb-2">{{ $post->body }}</p>
                 </div>
+                <div class="flex items-center">
+                    <form action="" method="POST" class="mr-1">
+                        @csrf
+                        <button type="submit" class="text-blue-500">Like</button>
+                    </form>
+                    <form action="" method="POST" class="mr-1">
+                        @csrf
+                        <button type="submit" class="text-blue-500">Unlike</button>
+                    </form>
+                    <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>
+                </div>
             @endforeach
             {{ $posts->links() }}
         @else
