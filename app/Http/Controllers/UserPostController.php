@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 class UserPostController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
-        dd('Test');
+        return view('users.posts.index');
     }
 }
