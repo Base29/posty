@@ -8,8 +8,8 @@
                 <div class="mb-4">
                     <label for="body" class="sr-only">Body</label>
                     <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('body')
-                                                                                                                border-red-500
-                                                            @enderror" placeholder="Post something"></textarea>
+                                                                                                                        border-red-500
+                                                                @enderror" placeholder="Post something"></textarea>
 
                     @error('body')
                         <div class="text-red-500 mt-2 text-sm">
@@ -26,7 +26,7 @@
                 @foreach ($posts as $post)
                     <div class="mb-5 border-b-2 border-gray-400">
                         <div class="mb-4">
-                            <a href="" class="font-bold">{{ $post->user->name }}</a> <span
+                            <a href="{{ route('users.posts') }}" class="font-bold">{{ $post->user->name }}</a> <span
                                 class="text-gray-600 text-sm">{{ $post->created_at->diffForHumans() }}</span>
                             <p class="mb-2">{{ $post->body }}</p>
                         </div>
