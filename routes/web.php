@@ -40,3 +40,4 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 // Posts Routes
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::post('/posts', [PostController::class, 'store']);
+Route::post('/posts/{id}/likes', [PostLikeController::class, 'addLike']);
