@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,4 +41,4 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 // Posts Routes
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::post('/posts', [PostController::class, 'store']);
-Route::post('/posts/{id}/likes', [PostLikeController::class, 'addLike']);
+Route::post('/posts/{post}/likes', [PostLikeController::class, 'addLike'])->name('posts.likes');
